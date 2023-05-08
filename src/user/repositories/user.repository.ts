@@ -1,6 +1,6 @@
+import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { User } from '../entities/user.entity';
-import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export default class UserRepository {
@@ -16,5 +16,9 @@ export default class UserRepository {
 
   findAll(): Promise<User[]> {
     return this.userModel.find();
+  }
+
+  async findByEmailAndPassword(email: string, password: string) {
+    return this.userModel.findOne({ email, password }).exec();
   }
 }
