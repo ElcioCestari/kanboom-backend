@@ -17,3 +17,12 @@ Content-Type: application/json
     "email": "maria@gmail.com",
     "password": "password"
 }
+
+### post a invalid user email
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "email": "mariagmail.com",
+    "password": "password"
+}
