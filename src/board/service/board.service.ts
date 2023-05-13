@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { CreateBoardDto } from '../dto/create-board.dto';
 import { UpdateBoardDto } from '../dto/update-board.dto';
+import BordRepository from '../repository/board.repository';
 
 @Injectable()
 export class BoardService {
+  constructor(private readonly repository: BordRepository) {}
   create(createBoardDto: CreateBoardDto) {
-    return 'This action adds a new board';
+    return this.repository.save(createBoardDto);
   }
 
   findAll() {
