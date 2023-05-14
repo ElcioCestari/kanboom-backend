@@ -25,4 +25,8 @@ export default class UserRepository {
   findById(id: string) {
     return this.userModel.findOne({ _id: id }).exec();
   }
+
+  findByEmail(email: string) {
+    return this.userModel.findOne({ email }).exec();
+  }
 }

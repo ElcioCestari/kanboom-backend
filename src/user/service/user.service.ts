@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import UserRepository from '../repositories/user.repository';
 import UserMapper from '../mapper/user.mapper';
 import { LoginUserDto } from '../dto/login-user.dto ';
@@ -25,6 +29,11 @@ export class UserService {
 
   async create(dto: CreateUserDto) {
     const entity = this.mapper.toEntity(dto);
+    if (await this.repository.findByEmail(entity.email)) {
+      throw new BadRequestException(
+        'ja existe um usuário com o email informado.',
+      );
+    }
     const user = await this.repository.save(entity);
     return this.mapper.toResponse(user);
   }
