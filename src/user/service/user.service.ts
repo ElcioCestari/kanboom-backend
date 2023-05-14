@@ -3,6 +3,7 @@ import UserRepository from '../repositories/user.repository';
 import UserMapper from '../mapper/user.mapper';
 import { LoginUserDto } from '../dto/login-user.dto ';
 import { CreateUserDto } from '../dto/create-user.dto';
+import { User } from '../entities/user.entity';
 
 @Injectable()
 export class UserService {
@@ -17,7 +18,7 @@ export class UserService {
       user?.password,
     );
     if (!response) {
-      throw new NotFoundException();
+      throw new NotFoundException('usuário não encontrado');
     }
     return this.mapper.toResponse(response);
   }
@@ -31,5 +32,9 @@ export class UserService {
   async findAll() {
     const list = await this.repository.findAll();
     return list.map((user) => this.mapper.toResponse(user));
+  }
+
+  findById(userId: string): Promise<User> {
+    return this.repository.findById(userId);
   }
 }

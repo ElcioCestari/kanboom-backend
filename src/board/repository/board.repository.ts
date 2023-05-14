@@ -9,8 +9,8 @@ export default class BordRepository {
     private readonly BoardModel: Model<Board>,
   ) {}
 
-  save(Board: Board): Promise<Board> {
-    const createdBoard = new this.BoardModel(Board);
+  save(board: Board): Promise<Board> {
+    const createdBoard = new this.BoardModel(board);
     return createdBoard.save();
   }
 
