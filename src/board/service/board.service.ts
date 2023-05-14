@@ -33,4 +33,8 @@ export class BoardService {
   remove(id: number) {
     return `This action removes a #${id} board`;
   }
+
+  findByUserId(id: string) {
+    return this.repository.findByUserId(id);
+  }
 }

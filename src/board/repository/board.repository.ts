@@ -18,7 +18,7 @@ export default class BordRepository {
     return this.BoardModel.find();
   }
 
-  async findByUserId(userId: string) {
-    return this.BoardModel.findOne({ userId }).exec();
+  async findByUserId(userId: string): Promise<Board[]> {
+    return this.BoardModel.find({ userId }).exec();
   }
 }

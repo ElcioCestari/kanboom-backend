@@ -32,6 +32,9 @@ Content-Type: application/json
 ### RETRIEVE ALL BOARD
 GET http://localhost:3000/board
 
+### RETRIEVE ALL BOARD BY USER ID
+GET http://localhost:3000/board/user/645c222269992d3715626b59
+
 ### SAVE BOARD
 POST http://localhost:3000/board
 Content-Type: application/json

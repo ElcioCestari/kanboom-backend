@@ -29,6 +29,11 @@ export class BoardController {
     return this.boardService.findOne(+id);
   }
 
+  @Get('/user/:id')
+  findAllByUserId(@Param('id') id: string) {
+    return this.boardService.findByUserId(id);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
     return this.boardService.update(+id, updateBoardDto);
