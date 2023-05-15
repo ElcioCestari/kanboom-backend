@@ -21,4 +21,12 @@ export default class UserRepository {
   async findByEmailAndPassword(email: string, password: string) {
     return this.userModel.findOne({ email, password }).exec();
   }
+
+  findById(id: string) {
+    return this.userModel.findOne({ _id: id }).exec();
+  }
+
+  findByEmail(email: string) {
+    return this.userModel.findOne({ email }).exec();
+  }
 }
