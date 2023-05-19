@@ -31,7 +31,7 @@ export class UserService {
     const entity = this.mapper.toEntity(dto);
     if (await this.repository.findByEmail(entity.email)) {
       throw new BadRequestException(
-        'ja existe um usuário com o email informado.',
+        'ja existe um usuário com o email2 informado.',
       );
     }
     const user = await this.repository.save(entity);

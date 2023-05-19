@@ -43,3 +43,10 @@ Content-Type: application/json
   "userId": "645c222269992d3715626b59",
   "name": "kanboom-teste1"
 }
+
+
+### -------------------------- EMAIL ---------------------------------------- ###
+
+
+### SAVE BOARD
+POST http://localhost:3000/email

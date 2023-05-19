@@ -10,7 +10,7 @@ export class LoginUserDto {
   @IsEmail(
     {},
     {
-      message: 'email inválido',
+      message: 'email2 inválido',
     },
   )
   email: string;
