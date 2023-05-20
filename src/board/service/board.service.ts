@@ -22,8 +22,8 @@ export class BoardService {
     return this.repository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} board`;
+  findOne(id: string) {
+    return this.repository.findById(id);
   }
 
   update(id: number, updateBoardDto: UpdateBoardDto) {

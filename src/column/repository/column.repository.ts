@@ -18,7 +18,7 @@ export default class ColumnRepository {
     return this.ColumnModel.find();
   }
 
-  async findByUserId(userId: string): Promise<Column[]> {
-    return this.ColumnModel.find({ userId }).exec();
+  findAllByBoardId(boardId: string): Promise<Column[]> {
+    return this.ColumnModel.find({ boardId }).exec();
   }
 }

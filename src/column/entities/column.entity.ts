@@ -1,4 +1,5 @@
 export class Column {
-  id: any;
+  id?: any;
+  boardId: string;
   name: string;
 }

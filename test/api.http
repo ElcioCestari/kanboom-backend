@@ -43,3 +43,21 @@ Content-Type: application/json
   "userId": "645c222269992d3715626b59",
   "name": "kanboom-teste1"
 }
+
+
+### -------------------------- TEST COLUMN ---------------------------------------- ###
+
+### RETRIEVE ALL COLUMN
+GET http://localhost:3000/column
+
+### RETRIEVE ALL COLUMN BY BOARD ID
+GET http://localhost:3000/column/board/64665a42082ab33beaea6826
+
+### SAVE COLUMN
+POST http://localhost:3000/column
+Content-Type: application/json
+
+{
+  "boardId": "64665a42082ab33beaea6826",
+  "name": "TODO"
+}

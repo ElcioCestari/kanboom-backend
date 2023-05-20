@@ -1,15 +1,27 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateColumnDto } from '../dto/create-column.dto';
 import { UpdateColumnDto } from '../dto/update-column.dto';
+import ColumnRepository from '../repository/column.repository';
+import { BoardService } from '../../board/service/board.service';
+import { Column } from '../entities/column.entity';
 
 @Injectable()
 export class ColumnService {
-  create(createColumnDto: CreateColumnDto) {
-    return 'This action adds a new column';
+  constructor(
+    private readonly repository: ColumnRepository,
+    private readonly boardService: BoardService,
+  ) {}
+
+  async create(createColumnDto: CreateColumnDto) {
+    const board = await this.boardService.findOne(createColumnDto.boardId);
+    if (!board) {
+      throw new NotFoundException('quadro não encontrado');
+    }
+    return this.repository.save(createColumnDto);
   }
 
   findAll() {
-    return `This action returns all column`;
+    return this.repository.findAll();
   }
 
   findOne(id: number) {
@@ -22,5 +34,9 @@ export class ColumnService {
 
   remove(id: number) {
     return `This action removes a #${id} column`;
+  }
+
+  findAllByBoardId(id: string): Promise<Column[]> {
+    return this.repository.findAllByBoardId(id);
   }
 }

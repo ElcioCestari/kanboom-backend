@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ColumnService } from '../service/column.service';
 import { CreateColumnDto } from '../dto/create-column.dto';
 import { UpdateColumnDto } from '../dto/update-column.dto';
@@ -15,6 +23,11 @@ export class ColumnController {
   @Get()
   findAll() {
     return this.columnService.findAll();
+  }
+
+  @Get('/board/:id')
+  findAllByBoard(@Param('id') id: string) {
+    return this.columnService.findAllByBoardId(id);
   }
 
   @Get(':id')
