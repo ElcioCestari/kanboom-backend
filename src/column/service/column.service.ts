@@ -24,11 +24,11 @@ export class ColumnService {
     return this.repository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} column`;
+  findOne(id: string): Promise<Column> {
+    return this.repository.findById(id);
   }
 
-  update(id: number, updateColumnDto: UpdateColumnDto) {
+  update(id: string, updateColumnDto: UpdateColumnDto) {
     return `This action updates a #${id} column`;
   }
 

@@ -32,12 +32,12 @@ export class ColumnController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.columnService.findOne(+id);
+    return this.columnService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateColumnDto: UpdateColumnDto) {
-    return this.columnService.update(+id, updateColumnDto);
+    return this.columnService.update(id, updateColumnDto);
   }
 
   @Delete(':id')

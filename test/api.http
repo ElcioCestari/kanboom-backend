@@ -53,6 +53,10 @@ GET http://localhost:3000/column
 ### RETRIEVE ALL COLUMN BY BOARD ID
 GET http://localhost:3000/column/board/64665a42082ab33beaea6826
 
+
+### RETRIEVE ONE
+GET http://localhost:3000/column/6468cb0934e71feab0db6c70
+
 ### SAVE COLUMN
 POST http://localhost:3000/column
 Content-Type: application/json

@@ -21,4 +21,8 @@ export default class ColumnRepository {
   findAllByBoardId(boardId: string): Promise<Column[]> {
     return this.ColumnModel.find({ boardId }).exec();
   }
+
+  findById(id: string): Promise<Column> {
+    return this.ColumnModel.findById(id);
+  }
 }
