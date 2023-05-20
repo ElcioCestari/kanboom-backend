@@ -65,3 +65,12 @@ Content-Type: application/json
   "boardId": "64665a42082ab33beaea6826",
   "name": "TODO"
 }
+
+### UPDATE COLUMN
+PATCH http://localhost:3000/column/6468cb0934e71feab0db6c70
+Content-Type: application/json
+
+{
+  "boardId": "64665a42082ab33beaea6826",
+  "name": "DONE"
+}

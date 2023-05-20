@@ -28,8 +28,12 @@ export class ColumnService {
     return this.repository.findById(id);
   }
 
-  update(id: string, updateColumnDto: UpdateColumnDto) {
-    return `This action updates a #${id} column`;
+  async update(id: string, updateColumnDto: UpdateColumnDto): Promise<Column> {
+    const column: Column = await this.repository.update(id, updateColumnDto);
+    if (!column) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+    return column;
   }
 
   remove(id: number) {
