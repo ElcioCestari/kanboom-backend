@@ -33,7 +33,10 @@ Content-Type: application/json
 GET http://localhost:3000/board
 
 ### RETRIEVE ALL BOARD BY USER ID
-GET http://localhost:3000/board/user/645c222269992d3715626b59
+GET http://localhost:3000/board/user/646c12b17e120f8189713664
+
+### RETRIEVE BOARD BY ID
+GET http://localhost:3000/board/646c12ed7e120f818971366a
 
 ### SAVE BOARD
 POST http://localhost:3000/board
@@ -41,7 +44,7 @@ Content-Type: application/json
 
 {
   "userId": "645c222269992d3715626b59",
-  "name": "kanboom-teste1"
+  "name": "kanboom-teste2"
 }
 
 
@@ -51,7 +54,7 @@ Content-Type: application/json
 GET http://localhost:3000/column
 
 ### RETRIEVE ALL COLUMN BY BOARD ID
-GET http://localhost:3000/column/board/64665a42082ab33beaea6826
+GET http://localhost:3000/column/board/646c12ed7e120f818971366a
 
 
 ### RETRIEVE ONE
@@ -62,8 +65,8 @@ POST http://localhost:3000/column
 Content-Type: application/json
 
 {
-  "boardId": "64665a42082ab33beaea6826",
-  "name": "TODO"
+  "boardId": "646c12ed7e120f818971366a",
+  "name": "TO-DO1"
 }
 
 ### UPDATE COLUMN

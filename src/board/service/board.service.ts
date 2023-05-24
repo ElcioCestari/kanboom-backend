@@ -10,6 +10,7 @@ export class BoardService {
     private readonly repository: BordRepository,
     private readonly userService: UserService,
   ) {}
+
   async create(createBoardDto: CreateBoardDto) {
     const user = await this.userService.findById(createBoardDto.userId);
     if (!user) {

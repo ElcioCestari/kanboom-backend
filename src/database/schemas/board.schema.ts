@@ -5,5 +5,13 @@ export const BoardSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+
   name: String,
+
+  columns: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Column',
+    },
+  ],
 });
