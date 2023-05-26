@@ -6,4 +6,5 @@ export const CardSchema = new mongoose.Schema({
     ref: 'Column',
   },
   name: String,
+  description: String,
 });

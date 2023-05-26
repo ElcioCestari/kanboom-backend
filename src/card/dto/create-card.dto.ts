@@ -5,6 +5,10 @@ export class CreateCardDto {
   @IsString()
   name: string;
 
+  @IsNotEmpty()
+  @IsString()
+  description: string;
+
   @IsMongoId()
   column: string;
 }

@@ -108,5 +108,6 @@ Content-Type: application/json
 
 {
   "column": "646d6adbb207bc60b05857b9",
-  "name": "CARD 2"
+  "name": "CARD 2",
+  "description": "this is the description of the card 2"
 }
