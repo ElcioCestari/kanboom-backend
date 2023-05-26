@@ -6,4 +6,10 @@ export const ColumnSchema = new mongoose.Schema({
     ref: 'Board',
   },
   name: String,
+  cards: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Card',
+    },
+  ],
 });

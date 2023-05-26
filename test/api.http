@@ -58,7 +58,7 @@ GET http://localhost:3000/column/board/646c12ed7e120f818971366a
 
 
 ### RETRIEVE ONE
-GET http://localhost:3000/column/6468cb0934e71feab0db6c70
+GET http://localhost:3000/column/646d6adbb207bc60b05857b9
 
 ### SAVE COLUMN
 POST http://localhost:3000/column
@@ -76,4 +76,37 @@ Content-Type: application/json
 {
   "boardId": "64665a42082ab33beaea6826",
   "name": "DONE"
+}
+
+### -------------------------- TEST CARD ---------------------------------------- ###
+
+### RETRIEVE ALL CARD
+GET http://localhost:3000/card
+
+### RETRIEVE ALL CARD BY COLUMN ID
+GET http://localhost:3000/card/column/646d6adbb207bc60b05857b9
+
+
+### RETRIEVE ONE
+GET http://localhost:3000/card/64700c0009839a70e517c900
+
+### DELETE
+DELETE http://localhost:3000/card/64700e5fe9ce4b2e9d49bee2
+
+### SAVE CARD
+POST http://localhost:3000/card
+Content-Type: application/json
+
+{
+  "name": "TO-DO2",
+  "column": "646d6adbb207bc60b05857b9"
+}
+
+### UPDATE CARD
+PATCH http://localhost:3000/card/64700c0009839a70e517c900
+Content-Type: application/json
+
+{
+  "column": "646d6adbb207bc60b05857b9",
+  "name": "CARD 2"
 }
