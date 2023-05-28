@@ -1,17 +1,15 @@
 import * as mongoose from 'mongoose';
 
-export const BoardSchema = new mongoose.Schema({
-  userId: {
+export const ColumnSchema = new mongoose.Schema({
+  boardId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'Board',
   },
-
   name: String,
-
-  columns: [
+  cards: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Column',
+      ref: 'Card',
     },
   ],
 });

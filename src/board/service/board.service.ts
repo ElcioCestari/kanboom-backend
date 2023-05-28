@@ -10,6 +10,7 @@ export class BoardService {
     private readonly repository: BordRepository,
     private readonly userService: UserService,
   ) {}
+
   async create(createBoardDto: CreateBoardDto) {
     const user = await this.userService.findById(createBoardDto.userId);
     if (!user) {
@@ -22,8 +23,8 @@ export class BoardService {
     return this.repository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} board`;
+  findOne(id: string) {
+    return this.repository.findById(id);
   }
 
   update(id: number, updateBoardDto: UpdateBoardDto) {

@@ -33,7 +33,10 @@ Content-Type: application/json
 GET http://localhost:3000/board
 
 ### RETRIEVE ALL BOARD BY USER ID
-GET http://localhost:3000/board/user/645c222269992d3715626b59
+GET http://localhost:3000/board/user/646c12b17e120f8189713664
+
+### RETRIEVE BOARD BY ID
+GET http://localhost:3000/board/646c12ed7e120f818971366a
 
 ### SAVE BOARD
 POST http://localhost:3000/board
@@ -41,7 +44,72 @@ Content-Type: application/json
 
 {
   "userId": "645c222269992d3715626b59",
-  "name": "kanboom-teste1"
+  "name": "kanboom-teste2"
+}
+
+
+### -------------------------- TEST COLUMN ---------------------------------------- ###
+
+### RETRIEVE ALL COLUMN
+GET http://localhost:3000/column
+
+### RETRIEVE ALL COLUMN BY BOARD ID
+GET http://localhost:3000/column/board/646c12ed7e120f818971366a
+
+
+### RETRIEVE ONE
+GET http://localhost:3000/column/646d6adbb207bc60b05857b9
+
+### SAVE COLUMN
+POST http://localhost:3000/column
+Content-Type: application/json
+
+{
+  "boardId": "646c12ed7e120f818971366a",
+  "name": "TO-DO1"
+}
+
+### UPDATE COLUMN
+PATCH http://localhost:3000/column/6468cb0934e71feab0db6c70
+Content-Type: application/json
+
+{
+  "boardId": "64665a42082ab33beaea6826",
+  "name": "DONE"
+}
+
+### -------------------------- TEST CARD ---------------------------------------- ###
+
+### RETRIEVE ALL CARD
+GET http://localhost:3000/card
+
+### RETRIEVE ALL CARD BY COLUMN ID
+GET http://localhost:3000/card/column/646d6adbb207bc60b05857b9
+
+
+### RETRIEVE ONE
+GET http://localhost:3000/card/64700c0009839a70e517c900
+
+### DELETE
+DELETE http://localhost:3000/card/64700e5fe9ce4b2e9d49bee2
+
+### SAVE CARD
+POST http://localhost:3000/card
+Content-Type: application/json
+
+{
+  "name": "TO-DO2",
+  "column": "646d6adbb207bc60b05857b9"
+}
+
+### UPDATE CARD
+PATCH http://localhost:3000/card/64700c0009839a70e517c900
+Content-Type: application/json
+
+{
+  "column": "646d6adbb207bc60b05857b9",
+  "name": "CARD 2",
+  "description": "this is the description of the card 2"
 }
 
 
