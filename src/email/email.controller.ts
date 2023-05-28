@@ -1,13 +1,12 @@
-import { Controller, Post, Body } from '@nestjs/common';
-import { CreateEmailDto } from './dto/create-email.dto';
+import { Controller, Param, Post } from '@nestjs/common';
 import { EmailService } from './service/email.service';
 
 @Controller('email')
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
-  @Post()
-  create() {
-    return this.emailService.sendRecoveryEmail('createEmailDto');
+  @Post('/recovery/:email')
+  create(@Param('email') email: string) {
+    return this.emailService.sendRecoveryEmail(email);
   }
 }

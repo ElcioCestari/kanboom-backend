@@ -116,5 +116,5 @@ Content-Type: application/json
 ### -------------------------- EMAIL ---------------------------------------- ###
 
 
-### SAVE BOARD
-POST http://localhost:3000/email
+### RECOVERY EMAIL
+POST http://localhost:3000/email/recovery/kanboomsquad05@gmail.com
