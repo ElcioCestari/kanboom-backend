@@ -14,7 +14,8 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "email": "maria@gmail.com",
+  "name": "KanboomUser",
+    "email": "kanboomsquad05@gmail.com",
     "password": "password"
 }
 
@@ -33,7 +34,7 @@ Content-Type: application/json
 GET http://localhost:3000/board
 
 ### RETRIEVE ALL BOARD BY USER ID
-GET http://localhost:3000/board/user/646c12b17e120f8189713664
+GET http://localhost:3000/board/user/64769ce1e4b7c84bdc9a3a31
 
 ### RETRIEVE BOARD BY ID
 GET http://localhost:3000/board/646c12ed7e120f818971366a
@@ -43,8 +44,8 @@ POST http://localhost:3000/board
 Content-Type: application/json
 
 {
-  "userId": "645c222269992d3715626b59",
-  "name": "kanboom-teste2"
+  "userId": "64769ce1e4b7c84bdc9a3a31",
+  "name": "kanboom-teste1"
 }
 
 
@@ -58,7 +59,7 @@ GET http://localhost:3000/column/board/646c12ed7e120f818971366a
 
 
 ### RETRIEVE ONE
-GET http://localhost:3000/column/646d6adbb207bc60b05857b9
+GET http://localhost:3000/column/646c135e7e120f8189713672
 
 ### SAVE COLUMN
 POST http://localhost:3000/column
@@ -118,3 +119,6 @@ Content-Type: application/json
 
 ### RECOVERY EMAIL
 POST http://localhost:3000/email/recovery/kanboomsquad05@gmail.com
+
+### RECOVERY EMAIL WHEN NOT FOUND
+POST http://localhost:3000/email/recovery/fake@gmail.com

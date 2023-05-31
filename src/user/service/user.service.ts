@@ -46,4 +46,8 @@ export class UserService {
   findById(userId: string): Promise<User> {
     return this.repository.findById(userId);
   }
+
+  findByEmail(email: string): Promise<User> {
+    return this.repository.findByEmail(email);
+  }
 }
