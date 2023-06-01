@@ -5,8 +5,17 @@ POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-    "email": "elcio@gmail.com",
+    "email": "kanboomsquad05@gmail.com",
     "password": "password"
+}
+
+### reset-password
+POST http://localhost:3000/users/reset_password
+Content-Type: application/json
+
+{
+    "email": "elcio@gmail.com",
+    "password": "elcio-pass"
 }
 
 ###

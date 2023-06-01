@@ -1,20 +1,17 @@
-import {
-  BadRequestException,
-  Injectable,
-  NotFoundException,
-} from '@nestjs/common';
+import {BadRequestException, Injectable, NotFoundException,} from '@nestjs/common';
 import UserRepository from '../repositories/user.repository';
 import UserMapper from '../mapper/user.mapper';
-import { LoginUserDto } from '../dto/login-user.dto ';
-import { CreateUserDto } from '../dto/create-user.dto';
-import { User } from '../entities/user.entity';
+import {LoginUserDto} from '../dto/login-user.dto ';
+import {CreateUserDto} from '../dto/create-user.dto';
+import {User} from '../entities/user.entity';
 
 @Injectable()
 export class UserService {
   constructor(
     private readonly repository: UserRepository,
     private readonly mapper: UserMapper,
-  ) {}
+  ) {
+  }
 
   async login(user: LoginUserDto) {
     const response = await this.repository.findByEmailAndPassword(
@@ -49,5 +46,20 @@ export class UserService {
 
   findByEmail(email: string): Promise<User> {
     return this.repository.findByEmail(email);
+  }
+
+  async resetPassword(createUserDto: CreateUserDto) {
+    const response = await this.repository.findByEmail(
+      createUserDto?.email,
+    );
+    if (!response) {
+      throw new NotFoundException('usuário não encontrado');
+    }
+    const userUpdated = await this.repository.update(
+      response.id,
+      createUserDto,
+    );
+
+    return this.mapper.toResponse(userUpdated);
   }
 }
