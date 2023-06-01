@@ -1,6 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { User } from '../entities/user.entity';
+import {UpdateColumnDto} from "../../column/dto/update-column.dto";
+import {Column} from "../../column/entities/column.entity";
+import {CreateUserDto} from "../dto/create-user.dto";
 
 @Injectable()
 export default class UserRepository {
@@ -28,5 +31,11 @@ export default class UserRepository {
 
   findByEmail(email: string) {
     return this.userModel.findOne({ email }).exec();
+  }
+
+  update(id: string, dto: CreateUserDto): Promise<User> {
+    return this.userModel.findOneAndUpdate({ _id: id }, dto, {
+      new: true,
+    });
   }
 }

@@ -4,7 +4,7 @@ export class CreateUserDto {
   @IsEmail(
     {},
     {
-      message: 'email inválido',
+      message: 'email2 inválido',
     },
   )
   email: string;

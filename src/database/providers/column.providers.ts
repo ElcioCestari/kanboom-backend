@@ -1,5 +1,4 @@
 import { Connection } from 'mongoose';
-import { Column } from '../../column/entities/column.entity';
 import { ColumnSchema } from '../schemas/column.schema';
 
 export const columnProviders = [
