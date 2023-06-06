@@ -4,12 +4,14 @@ import { UpdateColumnDto } from '../dto/update-column.dto';
 import ColumnRepository from '../repository/column.repository';
 import { BoardService } from '../../board/service/board.service';
 import { Column } from '../entities/column.entity';
+import { CardService } from '../../card/service/card.service';
 
 @Injectable()
 export class ColumnService {
   constructor(
     private readonly repository: ColumnRepository,
     private readonly boardService: BoardService,
+    private readonly cardService: CardService,
   ) {}
 
   async create(createColumnDto: CreateColumnDto) {
@@ -40,7 +42,15 @@ export class ColumnService {
     return `This action removes a #${id} column`;
   }
 
-  findAllByBoardId(id: string): Promise<Column[]> {
-    return this.repository.findAllByBoardId(id);
+  async findAllByBoardId(id: string): Promise<Column[]> {
+    const columns = await this.repository.findAllByBoardId(id);
+    if (!columns) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+    for (const c of columns) {
+      const cards = await this.cardService.findAllByColumnId(c.id);
+      c.cards = cards;
+    }
+    return columns;
   }
 }
