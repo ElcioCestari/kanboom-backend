@@ -26,8 +26,13 @@ export class ColumnService {
     return this.repository.findAll();
   }
 
-  findOne(id: string): Promise<Column> {
-    return this.repository.findById(id);
+  async findOne(id: string): Promise<Column> {
+    const column = await this.repository.findById(id);
+    if (!column) {
+      throw new NotFoundException('Coluna não encontrada');
+    }
+    column.cards = await this.cardService.findAllByColumnId(column.id);
+    return column;
   }
 
   async update(id: string, updateColumnDto: UpdateColumnDto): Promise<Column> {
@@ -48,8 +53,7 @@ export class ColumnService {
       throw new NotFoundException('Coluna não encontrada');
     }
     for (const c of columns) {
-      const cards = await this.cardService.findAllByColumnId(c.id);
-      c.cards = cards;
+      c.cards = await this.cardService.findAllByColumnId(c.id);
     }
     return columns;
   }
