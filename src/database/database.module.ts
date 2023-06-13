@@ -4,6 +4,7 @@ import { userProviders } from './providers/user.providers';
 import { boardProviders } from './providers/board.providers';
 import { columnProviders } from './providers/column.providers';
 import { cardProviders } from './providers/card.providers';
+import { commentProviders } from './providers/comment.providers';
 
 @Module({
   providers: [
@@ -12,6 +13,7 @@ import { cardProviders } from './providers/card.providers';
     ...boardProviders,
     ...columnProviders,
     ...cardProviders,
+    ...commentProviders,
   ],
   exports: [
     ...databaseProviders,
@@ -19,6 +21,7 @@ import { cardProviders } from './providers/card.providers';
     ...boardProviders,
     ...columnProviders,
     ...cardProviders,
+    ...commentProviders,
   ],
 })
 export class DatabaseModule {}

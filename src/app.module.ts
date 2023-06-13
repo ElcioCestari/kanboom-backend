@@ -6,6 +6,7 @@ import { ColumnModule } from './column/column.module';
 import { CardModule } from './card/card.module';
 
 import { EmailModule } from './email/email.module';
+import { CommentModule } from './comment/comment.module';
 @Module({
   imports: [
     UserModule,
@@ -14,6 +15,7 @@ import { EmailModule } from './email/email.module';
     ColumnModule,
     CardModule,
     EmailModule,
+    CommentModule,
   ],
   controllers: [],
   providers: [],
