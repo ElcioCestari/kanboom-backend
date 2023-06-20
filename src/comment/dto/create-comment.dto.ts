@@ -1,4 +1,4 @@
-import { IsMongoId, IsNotEmpty, IsString } from 'class-validator';
+import { IsMongoId, IsNotEmpty, IsString, Length } from 'class-validator';
 
 export class CreateCommentDto {
   @IsNotEmpty()
@@ -15,5 +15,6 @@ export class CreateCommentDto {
 
   @IsNotEmpty()
   @IsString()
+  @Length(1, 1000)
   description: string;
 }
