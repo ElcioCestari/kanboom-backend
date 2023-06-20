@@ -30,4 +30,12 @@ export class CommentRepository {
   delete(id: string) {
     return this.model.findByIdAndDelete({ _id: id });
   }
+
+  findAllByCardId(id: string): Promise<Comment[]> {
+    return this.model
+      .find({
+        cardId: id,
+      })
+      .sort({ date: 1 });
+  }
 }

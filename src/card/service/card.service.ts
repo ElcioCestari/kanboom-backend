@@ -2,10 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { CreateCardDto } from '../dto/create-card.dto';
 import { UpdateCardDto } from '../dto/update-card.dto';
 import CardRepository from '../repository/card.repository';
+import { CommentService } from '../../comment/service/comment.service';
+import { Comment } from '../../comment/entities/comment.entity';
 
 @Injectable()
 export class CardService {
-  constructor(private readonly repository: CardRepository) {}
+  constructor(
+    private readonly repository: CardRepository,
+    private readonly commentService: CommentService,
+  ) {}
 
   create(createCardDto: CreateCardDto) {
     return this.repository.create(createCardDto);
@@ -29,5 +34,9 @@ export class CardService {
 
   findAllByColumnId(id: string) {
     return this.repository.findAllByColumnId(id);
+  }
+
+  findAllCommentsByCardId(id: string): Promise<Comment[]> {
+    return this.commentService.findAllCommentsByCardId(id);
   }
 }

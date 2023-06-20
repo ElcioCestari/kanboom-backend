@@ -30,6 +30,11 @@ export class CardController {
     return this.cardService.findAllByColumnId(id);
   }
 
+  @Get('/:id/comment')
+  findAllCommentsByCardId(@Param('id') id: string) {
+    return this.cardService.findAllCommentsByCardId(id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.cardService.findOne(id);

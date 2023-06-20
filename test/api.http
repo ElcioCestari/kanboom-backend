@@ -122,6 +122,9 @@ Content-Type: application/json
   "description": "this is the description of the card 2"
 }
 
+### RECOVERY COMMENT BY CARD ID
+GET http://localhost:3000/card/646d6adbb207bc60b05857b9/comment/
+
 
 ### -------------------------- EMAIL ---------------------------------------- ###
 
@@ -146,7 +149,7 @@ Content-Type: application/json
 {
   "cardId": "646d6adbb207bc60b05857b9",
   "userId": "646d6adbb207bc60b05857b9",
-  "title": "TITLE 1",
+  "title": "TITLE 2",
   "description": "this is the description of comment"
 }
 
@@ -163,4 +166,4 @@ Content-Type: application/json
 
 
 ### DELETE COMMENT
-DELETE http://localhost:3000/comment/6491a42ae7c0bfb53a957a4a
+DELETE http://localhost:3000/comment/6491a682e7c0bfb53a957a50

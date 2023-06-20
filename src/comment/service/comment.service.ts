@@ -29,4 +29,8 @@ export class CommentService {
   remove(id: string): Promise<Comment> {
     return this.repository.delete(id);
   }
+
+  findAllCommentsByCardId(id: string): Promise<Comment[]> {
+    return this.repository.findAllByCardId(id);
+  }
 }
