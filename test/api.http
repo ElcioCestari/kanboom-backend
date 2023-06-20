@@ -131,3 +131,36 @@ POST http://localhost:3000/email/recovery/kanboomsquad05@gmail.com
 
 ### RECOVERY EMAIL WHEN NOT FOUND
 POST http://localhost:3000/email/recovery/fake@gmail.com
+
+### -------------------------- COMMENT ---------------------------------------- ###
+
+
+### RECOVERY COMMENT
+GET http://localhost:3000/comment
+Content-Type: application/json
+
+### SAVE COMMENT
+POST http://localhost:3000/comment
+Content-Type: application/json
+
+{
+  "cardId": "646d6adbb207bc60b05857b9",
+  "userId": "646d6adbb207bc60b05857b9",
+  "title": "TITLE 1",
+  "description": "this is the description of comment"
+}
+
+### UPDATE COMMENT
+PATCH http://localhost:3000/comment/6491a42ae7c0bfb53a957a4a
+Content-Type: application/json
+
+{
+  "cardId": "646d6adbb207bc60b05857b9",
+  "userId": "646d6adbb207bc60b05857b9",
+  "title": "TITLE 1 - UPDATED",
+  "description": "this is the description of comment"
+}
+
+
+### DELETE COMMENT
+DELETE http://localhost:3000/comment/6491a42ae7c0bfb53a957a4a
