@@ -9,7 +9,9 @@ export class CommentService {
   constructor(private readonly repository: CommentRepository) {}
 
   create(createCommentDto: CreateCommentDto): Promise<Comment> {
-    return this.repository.save(createCommentDto);
+    const comment = createCommentDto as Comment;
+    comment.date = new Date();
+    return this.repository.save(comment);
   }
 
   findAll(): Promise<Comment[]> {

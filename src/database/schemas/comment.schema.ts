@@ -11,4 +11,5 @@ export const CommentSchema = new mongoose.Schema({
   },
   title: String,
   description: String,
+  date: String,
 });

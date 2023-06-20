@@ -4,4 +4,5 @@ export class Comment {
   userId: string;
   title: string;
   description: string;
+  date: Date;
 }
